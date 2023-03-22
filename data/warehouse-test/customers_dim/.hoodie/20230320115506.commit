@@ -1,0 +1,41 @@
+{
+  "partitionToWriteStats" : {
+    "20230320" : [ {
+      "fileId" : "dfb5a7ed-505d-467c-b324-5e8f43869870-0",
+      "path" : "20230320/dfb5a7ed-505d-467c-b324-5e8f43869870-0_0-60-66_20230320115506.parquet",
+      "prevCommit" : "null",
+      "numWrites" : 3,
+      "numDeletes" : 0,
+      "numUpdateWrites" : 0,
+      "numInserts" : 3,
+      "totalWriteBytes" : 437436,
+      "totalWriteErrors" : 0,
+      "tempPath" : null,
+      "partitionPath" : "20230320",
+      "totalLogRecords" : 0,
+      "totalLogFilesCompacted" : 0,
+      "totalLogSizeCompacted" : 0,
+      "totalUpdatedRecordsCompacted" : 0,
+      "totalLogBlocks" : 0,
+      "totalCorruptLogBlock" : 0,
+      "totalRollbackBlocks" : 0,
+      "fileSizeInBytes" : 437436
+    } ]
+  },
+  "compacted" : false,
+  "extraMetadata" : {
+    "schema" : "{\"type\":\"record\",\"name\":\"customers_dim_record\",\"namespace\":\"hoodie.customers_dim\",\"fields\":[{\"name\":\"customer_skey\",\"type\":[\"long\",\"null\"]},{\"name\":\"customer_id\",\"type\":[\"string\",\"null\"]},{\"name\":\"address_skey\",\"type\":[\"long\",\"null\"]},{\"name\":\"branch_skey\",\"type\":[\"long\",\"null\"]},{\"name\":\"date_of_birth\",\"type\":[{\"type\":\"int\",\"logicalType\":\"date\"},\"null\"]},{\"name\":\"description\",\"type\":[\"string\",\"null\"]},{\"name\":\"updated_time\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"sys_valid_from\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"sys_valid_to\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"sys_is_current\",\"type\":\"boolean\"},{\"name\":\"sys_partition\",\"type\":[\"string\",\"null\"]},{\"name\":\"sys_created_time\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"}}]}"
+  },
+  "operationType" : "UPSERT",
+  "fileIdAndRelativePaths" : {
+    "dfb5a7ed-505d-467c-b324-5e8f43869870-0" : "20230320/dfb5a7ed-505d-467c-b324-5e8f43869870-0_0-60-66_20230320115506.parquet"
+  },
+  "totalRecordsDeleted" : 0,
+  "totalLogRecordsCompacted" : 0,
+  "totalLogFilesCompacted" : 0,
+  "totalCompactedRecordsUpdated" : 0,
+  "totalLogFilesSize" : 0,
+  "totalScanTime" : 0,
+  "totalCreateTime" : 419,
+  "totalUpsertTime" : 0
+}

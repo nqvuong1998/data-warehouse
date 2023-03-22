@@ -1,0 +1,41 @@
+{
+  "partitionToWriteStats" : {
+    "20230320" : [ {
+      "fileId" : "f587a3d9-346b-42e7-bb1d-deae1dc1defa-0",
+      "path" : "20230320/f587a3d9-346b-42e7-bb1d-deae1dc1defa-0_0-64-65_20230321015610.parquet",
+      "prevCommit" : "null",
+      "numWrites" : 3,
+      "numDeletes" : 0,
+      "numUpdateWrites" : 0,
+      "numInserts" : 3,
+      "totalWriteBytes" : 437324,
+      "totalWriteErrors" : 0,
+      "tempPath" : null,
+      "partitionPath" : "20230320",
+      "totalLogRecords" : 0,
+      "totalLogFilesCompacted" : 0,
+      "totalLogSizeCompacted" : 0,
+      "totalUpdatedRecordsCompacted" : 0,
+      "totalLogBlocks" : 0,
+      "totalCorruptLogBlock" : 0,
+      "totalRollbackBlocks" : 0,
+      "fileSizeInBytes" : 437324
+    } ]
+  },
+  "compacted" : false,
+  "extraMetadata" : {
+    "schema" : "{\"type\":\"record\",\"name\":\"accounts_dim_record\",\"namespace\":\"hoodie.accounts_dim\",\"fields\":[{\"name\":\"account_skey\",\"type\":[\"long\",\"null\"]},{\"name\":\"account_number\",\"type\":[\"int\",\"null\"]},{\"name\":\"account_type_skey\",\"type\":[\"long\",\"null\"]},{\"name\":\"customer_skey\",\"type\":[\"long\",\"null\"]},{\"name\":\"account_status_code\",\"type\":[\"string\",\"null\"]},{\"name\":\"updated_time\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"sys_valid_from\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"sys_valid_to\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"sys_is_current\",\"type\":\"boolean\"},{\"name\":\"sys_partition\",\"type\":[\"string\",\"null\"]},{\"name\":\"sys_created_time\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"}}]}"
+  },
+  "operationType" : "UPSERT",
+  "fileIdAndRelativePaths" : {
+    "f587a3d9-346b-42e7-bb1d-deae1dc1defa-0" : "20230320/f587a3d9-346b-42e7-bb1d-deae1dc1defa-0_0-64-65_20230321015610.parquet"
+  },
+  "totalCreateTime" : 236,
+  "totalUpsertTime" : 0,
+  "totalRecordsDeleted" : 0,
+  "totalLogRecordsCompacted" : 0,
+  "totalLogFilesCompacted" : 0,
+  "totalCompactedRecordsUpdated" : 0,
+  "totalLogFilesSize" : 0,
+  "totalScanTime" : 0
+}

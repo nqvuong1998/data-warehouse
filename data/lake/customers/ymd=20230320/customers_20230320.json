@@ -1,0 +1,4 @@
+{"customer_id": "C1", "address_id": "AD1", "branch_id": "B1", "date_of_birth": "1998-01-01", "description": "C1 Hello", "updated_time": "2023-03-20 11:01:00.123"}
+{"customer_id": "C2", "address_id": "AD2", "branch_id": "B2", "date_of_birth": "1998-01-02", "description": "C2 Hello", "updated_time": "2023-03-20 11:02:00.123"}
+{"customer_id": "C1", "address_id": "AD3", "branch_id": "B3", "date_of_birth": "1998-01-03", "description": "C1 Hello", "updated_time": "2023-03-20 11:01:05.123"}
+

@@ -1,0 +1,3 @@
+{"branch_id": "B1", "address_id":  "AD1", "branch_type_code": "BT1", "updated_time": "2023-03-20 09:00:00.123"}
+{"branch_id": "B2", "address_id":  "AD2", "branch_type_code": "BT2", "updated_time": "2023-03-20 10:00:00.123"}
+{"branch_id": "B1", "address_id":  "AD3", "branch_type_code": "BT3", "updated_time": "2023-03-20 09:00:05.123"}

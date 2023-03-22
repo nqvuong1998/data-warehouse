@@ -1,0 +1,41 @@
+{
+  "partitionToWriteStats" : {
+    "20230321" : [ {
+      "fileId" : "04c41316-ce31-46e1-aed6-205a91031fad-0",
+      "path" : "20230321/04c41316-ce31-46e1-aed6-205a91031fad-0_0-77-105_20230321015710.parquet",
+      "prevCommit" : "null",
+      "numWrites" : 3,
+      "numDeletes" : 0,
+      "numUpdateWrites" : 0,
+      "numInserts" : 3,
+      "totalWriteBytes" : 436446,
+      "totalWriteErrors" : 0,
+      "tempPath" : null,
+      "partitionPath" : "20230321",
+      "totalLogRecords" : 0,
+      "totalLogFilesCompacted" : 0,
+      "totalLogSizeCompacted" : 0,
+      "totalUpdatedRecordsCompacted" : 0,
+      "totalLogBlocks" : 0,
+      "totalCorruptLogBlock" : 0,
+      "totalRollbackBlocks" : 0,
+      "fileSizeInBytes" : 436446
+    } ]
+  },
+  "compacted" : false,
+  "extraMetadata" : {
+    "schema" : "{\"type\":\"record\",\"name\":\"daily_account_closing_balance_mart_record\",\"namespace\":\"hoodie.daily_account_closing_balance_mart\",\"fields\":[{\"name\":\"account_skey\",\"type\":[\"long\",\"null\"]},{\"name\":\"account_number\",\"type\":[\"int\",\"null\"]},{\"name\":\"closing_balance\",\"type\":[\"double\",\"null\"]},{\"name\":\"updated_time\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"date_str\",\"type\":\"string\"},{\"name\":\"account_closing_balance_skey\",\"type\":\"long\"},{\"name\":\"sys_partition\",\"type\":\"string\"},{\"name\":\"sys_created_time\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"}}]}"
+  },
+  "operationType" : "INSERT",
+  "fileIdAndRelativePaths" : {
+    "04c41316-ce31-46e1-aed6-205a91031fad-0" : "20230321/04c41316-ce31-46e1-aed6-205a91031fad-0_0-77-105_20230321015710.parquet"
+  },
+  "totalRecordsDeleted" : 0,
+  "totalLogRecordsCompacted" : 0,
+  "totalLogFilesCompacted" : 0,
+  "totalCompactedRecordsUpdated" : 0,
+  "totalLogFilesSize" : 0,
+  "totalScanTime" : 0,
+  "totalCreateTime" : 75,
+  "totalUpsertTime" : 0
+}

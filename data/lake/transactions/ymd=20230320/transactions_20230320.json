@@ -1,0 +1,4 @@
+{"transaction_id": "TX1", "transaction_type_code": "TT1", "account_number": 1, "transaction_status": "SUCCESS", "transaction_amount": 10.2, "transaction_timestamp": "2023-03-20 14:01:00.123"}
+{"transaction_id": "TX1", "transaction_type_code": "TT2", "account_number": 2, "transaction_status": "FAIL", "transaction_amount": 10.2, "transaction_timestamp": "2023-03-20 14:01:00.123"}
+{"transaction_id": "TX2", "transaction_type_code": "TT2", "account_number": 2, "transaction_status": "FAIL", "transaction_amount": 20.5, "transaction_timestamp": "2023-03-20 14:02:00.456"}
+

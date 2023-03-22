@@ -1,0 +1,41 @@
+{
+  "partitionToWriteStats" : {
+    "20230321" : [ {
+      "fileId" : "602a1dca-1658-4fe1-96ea-04a0c04d0492-0",
+      "path" : "20230321/602a1dca-1658-4fe1-96ea-04a0c04d0492-0_0-17-42_20230321033814.parquet",
+      "prevCommit" : "null",
+      "numWrites" : 1,
+      "numDeletes" : 0,
+      "numUpdateWrites" : 0,
+      "numInserts" : 1,
+      "totalWriteBytes" : 436459,
+      "totalWriteErrors" : 0,
+      "tempPath" : null,
+      "partitionPath" : "20230321",
+      "totalLogRecords" : 0,
+      "totalLogFilesCompacted" : 0,
+      "totalLogSizeCompacted" : 0,
+      "totalUpdatedRecordsCompacted" : 0,
+      "totalLogBlocks" : 0,
+      "totalCorruptLogBlock" : 0,
+      "totalRollbackBlocks" : 0,
+      "fileSizeInBytes" : 436459
+    } ]
+  },
+  "compacted" : false,
+  "extraMetadata" : {
+    "schema" : "{\"type\":\"record\",\"name\":\"transactions_fact_record\",\"namespace\":\"hoodie.transactions_fact\",\"fields\":[{\"name\":\"transaction_amount\",\"type\":[\"double\",\"null\"]},{\"name\":\"transaction_status\",\"type\":[\"string\",\"null\"]},{\"name\":\"transaction_id\",\"type\":[\"string\",\"null\"]},{\"name\":\"transaction_timestamp\",\"type\":[{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"},\"null\"]},{\"name\":\"transaction_type_skey\",\"type\":\"long\"},{\"name\":\"account_skey\",\"type\":\"long\"},{\"name\":\"transaction_skey\",\"type\":\"long\"},{\"name\":\"sys_partition\",\"type\":[\"string\",\"null\"]},{\"name\":\"sys_created_time\",\"type\":{\"type\":\"long\",\"logicalType\":\"timestamp-micros\"}}]}"
+  },
+  "operationType" : "INSERT",
+  "fileIdAndRelativePaths" : {
+    "602a1dca-1658-4fe1-96ea-04a0c04d0492-0" : "20230321/602a1dca-1658-4fe1-96ea-04a0c04d0492-0_0-17-42_20230321033814.parquet"
+  },
+  "totalRecordsDeleted" : 0,
+  "totalLogRecordsCompacted" : 0,
+  "totalLogFilesCompacted" : 0,
+  "totalCompactedRecordsUpdated" : 0,
+  "totalLogFilesSize" : 0,
+  "totalScanTime" : 0,
+  "totalCreateTime" : 321,
+  "totalUpsertTime" : 0
+}

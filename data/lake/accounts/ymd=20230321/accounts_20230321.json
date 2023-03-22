@@ -1,0 +1,3 @@
+{"account_number": 1, "account_status_code": "ACTIVE", "account_type_code": "AT1", "customer_id": "C1", "current_balance": 12, "updated_time": "2023-03-21 12:01:00.123"}
+{"account_number": 1, "account_status_code": "ACTIVE", "account_type_code": "AT1", "customer_id": "C1", "current_balance": 14, "updated_time": "2023-03-21 12:01:10.123"}
+{"account_number": 3, "account_status_code": "ACTIVE", "account_type_code": "AT3", "customer_id": "C3", "current_balance": 8, "updated_time": "2023-03-21 12:02:00.123"}

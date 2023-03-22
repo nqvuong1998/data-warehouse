@@ -1,0 +1,73 @@
+spark:
+  spark_conf:
+    spark.executor.memory: 2g
+    spark.executor.cores: 1
+    spark.driver.memory: 1g
+    spark.cores.max: 3
+    spark.sql.caseSensitive: true
+    spark.default.parallelism: 6
+    spark.sql.shuffle.partitions: 6
+    spark.sql.sources.partitionOverwriteMode: dynamic
+    spark.serializer: org.apache.spark.serializer.KryoSerializer
+  hadoop_conf:
+    fs.s3a.endpoint: https://s3.ap-southeast-1.amazonaws.com
+
+java:
+  java_conf:
+    user.timezone: Asia/Ho_Chi_Minh
+
+fact:
+  source:
+    transactions_log:
+      format: json
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/lake/transactions/ymd={{yyyyMMdd}}
+      schema:
+        type: struct
+        field:
+          transaction_id: string
+          transaction_type_code: string
+          account_number: int
+          transaction_status: string
+          transaction_amount: double
+          transaction_timestamp: timestamp
+    transaction_types_dim:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/transaction_types_dim/*
+      schema:
+        type: struct
+        field:
+          transaction_type_skey: long
+          transaction_type_code: string
+    accounts_dim:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/accounts_dim/*
+      schema:
+        type: struct
+        field:
+          account_skey: long
+          account_number: int
+          sys_valid_from: timestamp
+          sys_valid_to: timestamp
+
+  destination:
+    format: org.apache.hudi
+    url: ""
+    path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/transactions_fact/
+    mode: append
+    option:
+      hoodie.insert.shuffle.parallelism: 2
+      hoodie.upsert.shuffle.parallelism: 2
+      hoodie.delete.shuffle.parallelism: 2
+      hoodie.bulkinsert.shuffle.parallelism: 2
+      hoodie.datasource.hive_sync.enable: false
+      hoodie.datasource.hive_sync.assume_date_partitioning: true
+      hoodie.table.name: transactions_fact
+      hoodie.clustering.async.enabled: true
+      hoodie.datasource.write.recordkey.field: transaction_skey
+      hoodie.datasource.write.partitionpath.field: sys_partition
+      hoodie.datasource.write.precombine.field: transaction_timestamp
+      hoodie.datasource.write.operation: insert
+      hoodie.datasource.hive_sync.table: transactions_fact

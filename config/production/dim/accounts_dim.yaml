@@ -1,0 +1,124 @@
+spark:
+  spark_conf:
+    spark.executor.memory: 2g
+    spark.executor.cores: 1
+    spark.driver.memory: 1g
+    spark.cores.max: 3
+    spark.sql.caseSensitive: true
+    spark.default.parallelism: 6
+    spark.sql.shuffle.partitions: 6
+    spark.sql.sources.partitionOverwriteMode: dynamic
+    spark.serializer: org.apache.spark.serializer.KryoSerializer
+  hadoop_conf:
+    fs.s3a.endpoint: https://s3.ap-southeast-1.amazonaws.com
+
+java:
+  java_conf:
+    user.timezone: Asia/Ho_Chi_Minh
+
+dim:
+  source:
+    accounts_log:
+      format: json
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/lake/accounts/ymd={{yyyyMMdd}}
+      schema:
+        type: struct
+        field:
+          account_number: int
+          account_status_code: string
+          account_type_code: string
+          customer_id: string
+          current_balance: double
+          updated_time: timestamp
+    accounts_dim:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/accounts_dim/*
+      schema:
+        type: struct
+        field:
+          account_skey: long
+          account_number: int
+          account_type_skey: long
+          customer_skey: long
+          account_status_code: string
+          updated_time: timestamp
+          sys_valid_from: timestamp
+          sys_valid_to: timestamp
+          sys_is_current: boolean
+          sys_partition: string
+    account_types_dim:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/account_types_dim/*
+      schema:
+        type: struct
+        field:
+          account_type_skey: long
+          account_type_code: string
+    customers_dim:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/customers_dim/*
+      schema:
+        type: struct
+        field:
+          customer_skey: long
+          customer_id: string
+          sys_valid_from: timestamp
+          sys_valid_to: timestamp
+    daily_account_closing_balance_mart:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/daily_account_closing_balance_mart/{{yyyyMMdd}}/*
+      schema:
+        type: struct
+        field:
+          account_skey: long
+          account_number: int
+          closing_balance: double
+          updated_time: timestamp
+
+  destination:
+    accounts_dim:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/accounts_dim/
+      mode: append
+      option:
+        hoodie.insert.shuffle.parallelism: 2
+        hoodie.upsert.shuffle.parallelism: 2
+        hoodie.delete.shuffle.parallelism: 2
+        hoodie.bulkinsert.shuffle.parallelism: 2
+        hoodie.datasource.hive_sync.enable: false
+        hoodie.datasource.hive_sync.assume_date_partitioning: true
+        hoodie.table.name: accounts_dim
+        hoodie.index.type: GLOBAL_BLOOM
+        hoodie.bloom.index.update.partition.path: true
+        hoodie.clustering.async.enabled: true
+        hoodie.datasource.write.recordkey.field: account_skey
+        hoodie.datasource.write.partitionpath.field: sys_partition
+        hoodie.datasource.write.precombine.field: updated_time
+        hoodie.datasource.write.operation: upsert
+        hoodie.datasource.hive_sync.table: accounts_dim
+
+    daily_account_closing_balance_mart:
+      format: org.apache.hudi
+      url: ""
+      path: /Users/lap14151/Downloads/Code/data-warehouse/data/warehouse/daily_account_closing_balance_mart/
+      mode: append
+      option:
+        hoodie.insert.shuffle.parallelism: 2
+        hoodie.upsert.shuffle.parallelism: 2
+        hoodie.delete.shuffle.parallelism: 2
+        hoodie.bulkinsert.shuffle.parallelism: 2
+        hoodie.datasource.hive_sync.enable: false
+        hoodie.datasource.hive_sync.assume_date_partitioning: true
+        hoodie.table.name: daily_account_closing_balance_mart
+        hoodie.clustering.async.enabled: true
+        hoodie.datasource.write.recordkey.field: account_closing_balance_skey
+        hoodie.datasource.write.partitionpath.field: sys_partition
+        hoodie.datasource.write.precombine.field: updated_time
+        hoodie.datasource.write.operation: insert
+        hoodie.datasource.hive_sync.table: daily_account_closing_balance_mart
